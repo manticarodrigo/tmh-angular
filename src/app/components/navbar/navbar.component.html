@@ -1,0 +1,44 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="homePressed()">
+      <img class="nav-logo" src="assets/images/logo.png">
+    </ion-button>
+  </ion-buttons>
+  <ion-title>
+    <span *ngIf="project">{{ project.client.first_name }}'s </span>
+    <span *ngIf="project">{{ project.room | readableRoom }} Project: </span>
+    <span *ngIf="project" class="page">Design Studio</span>
+    {{ title }}
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-menu-toggle>
+      <ion-button class="avatar">
+        <img *ngIf="user && user.image" [src]="user.image">
+        <img *ngIf="!user || !user.image" src="assets/images/user-placeholder.png">
+      </ion-button>
+    </ion-menu-toggle>
+  </ion-buttons>
+</ion-toolbar>
+<div class="sub-nav">
+  <div class="desktop menu">
+    <div *ngFor="let tab of tabs">
+      <a
+        [class.active]="tab === selectedTab"
+        (click)="selectTab(tab)">
+        {{ tabsMap[tab] }}
+      </a>
+    </div>
+  </div>
+  <ion-button 
+    full
+    class="mobile"
+    type="button"
+    (click)="selectDropdown()"
+  >
+    {{ tabsMap[selectedTab] }}
+    <img src="assets/images/down.png">
+  </ion-button>
+  <div *ngIf="project" class="days-left">
+    {{ project.end_date | daysLeft }} day(s) left
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<ion-menu side="end" contentId="content">
+  <ion-content>
+    <div class="header">
+      <img *ngIf="userService.user && userService.user.image" [src]="userService.user.image">
+      <img *ngIf="!userService.user || !userService.user.image" src="assets/images/user-placeholder.png">
+      <h4 *ngIf="userService.user">
+        {{ userService.user.firstName }} {{ userService.user.lastName }}
+      </h4>
+      <p *ngIf="userService.user">
+        {{ userService.user.emailAddress }}
+      </p>
+      <h4 *ngIf="!userService.user">
+        User
+      </h4>
+      <p *ngIf="!userService.user">
+        user@email.com
+      </p>
+      <button (click)="profilePressed()" ion-button full type="button">
+        VIEW PROFILE
+      </button>
+    </div>
+    <a (click)="allPressed()">ALL PROJECTS</a>
+    <a (click)="newPressed()">NEW PROJECT</a>
+    <a (click)="logout()">LOGOUT</a>
+  </ion-content>
+</ion-menu>

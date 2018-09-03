@@ -1,8 +1,8 @@
 // http://ionicframework.com/docs/theming/
+@import "~@ionic/angular/css/core.css";
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import "~@ionic/angular/css/colors.css";
 
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
@@ -10,3 +10,92 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+/* Regular */
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway'), url(./assets/fonts/Raleway-Regular.ttf) format('truetype');
+}
+
+/* Light */
+
+@font-face {
+  font-family: 'Raleway-Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway-Light'), local('Raleway-Light'), url(./assets/fonts/Raleway-Light.ttf) format('truetype');
+}
+
+/* Header styles */
+
+h1, h2, h3, h4, h5, h6, p, strong, .label  {
+  font-family: var(--ion-font-family-base) !important;
+}
+
+/* Element styles */
+
+button {
+  font-family: var(--ion-font-family-base) !important;
+  font-weight: 600 !important;
+  border-radius: 0px !important;
+  height: 40px !important;
+  margin: 0 auto !important;
+}
+
+/* Alert styles */
+
+.alert-head {
+    text-align: center !important;
+}
+
+.alert-message {
+    font-family: var(--ion-font-family-base) !important;
+    text-align: center !important;
+}
+
+.alert-button-group {
+    justify-content: center !important;
+}
+
+.alert-button {
+    font-family: var(--ion-font-family-base) !important;
+    font-weight: 800 !important;
+    text-transform: capitalize !important;
+}
+
+/* Define visible device screen widths */
+
+@media only screen and (min-width: 700px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+.mobile {
+    display: block;
+    }
+    .desktop {
+        display: none;
+    }
+}

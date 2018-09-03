@@ -4,17 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  }
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule' },
+  { path: 'design', loadChildren: './pages/design/design.module#DesignPageModule' },
+  { path: 'details', loadChildren: './pages/details/details.module#DetailsPageModule' },
+  { path: 'onboarding', loadChildren: './pages/onboarding/onboarding.module#OnboardingPageModule' },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'shopping-cart', loadChildren: './pages/shopping-cart/shopping-cart.module#ShoppingCartPageModule' }
 ];
 
 @NgModule({

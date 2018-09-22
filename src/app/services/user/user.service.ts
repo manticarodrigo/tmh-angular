@@ -23,11 +23,14 @@ export class UserService {
     private http: HttpClient,
     private storage: Storage,
   ) {}
+  
+  isLoggedIn(): boolean {
+    return Boolean(this.user && this.token);
+  }
 
   getAuthToken(): string {
     return `Token ${this.token}`;
   }
-
 
   getCurrentUser(): Observable<User> {
     return new Observable(observer => {

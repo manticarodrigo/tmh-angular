@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AccessGuard } from './access.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -8,12 +10,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule' },
-  { path: 'design', loadChildren: './pages/design/design.module#DesignPageModule' },
-  { path: 'details', loadChildren: './pages/details/details.module#DetailsPageModule' },
-  { path: 'onboarding', loadChildren: './pages/onboarding/onboarding.module#OnboardingPageModule' },
-  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
-  { path: 'shopping-cart', loadChildren: './pages/shopping-cart/shopping-cart.module#ShoppingCartPageModule' }
+  { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule', canActivate: [ AccessGuard ] },
+  { path: 'design', loadChildren: './pages/design/design.module#DesignPageModule', canActivate: [ AccessGuard ] },
+  { path: 'details', loadChildren: './pages/details/details.module#DetailsPageModule', canActivate: [ AccessGuard ] },
+  { path: 'onboarding', loadChildren: './pages/onboarding/onboarding.module#OnboardingPageModule', canActivate: [ AccessGuard ] },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule', canActivate: [ AccessGuard ] },
+  { path: 'shopping-cart', loadChildren: './pages/shopping-cart/shopping-cart.module#ShoppingCartPageModule', canActivate: [ AccessGuard ] }
 ];
 
 @NgModule({

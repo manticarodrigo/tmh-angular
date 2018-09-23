@@ -1,13 +1,10 @@
 :host {
-  .scroll-content {
+  ion-content {
     background-color: #ECF0F1;
   }
-  .item {
-    box-shadow: 0px 1px 6px rgba(0,0,0,0.3);
-    margin-bottom: 10px;
-  }
-  .item-inner {
-    border-bottom: 0px !important;
+  ion-list {
+    background-color: transparent;
+    contain: none;
   }
   .no-projects {
     max-width: 500px;
@@ -21,13 +18,25 @@
       margin-top: 20px !important;
     }
   }
-  .dashboard-header {
+  ion-grid.dashboard-header {
     margin: 0px 0px 20px;
     padding: 0px 20px;
     background-color: var(--ion-color-primary);
     width: 100%;
     height: 45px;
-    .type {
+    ion-col {
+      padding: 0;
+      .info {
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: 700;
+        color: #fff;
+      }
+    }
+    ion-col:last-of-type > .info {
+      text-align: right;
+    }
+    ion-col.type {
       margin-left: 5px;
       width: 45px !important;
       height: 45px !important;
@@ -40,71 +49,69 @@
           filter: brightness(1);
         }
     }
-    .section {
-      position: relative;
-      float: left;
-      width: 15%;
-    }
-    .section:last-of-type {
-      .info {
-        text-align: right;
-      }
-    }
-    .info {
-      text-align: center;
-      font-weight: 700;
-      color: #fff;
-    }
   }
-  .project {
+  ion-item.project {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 6px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
     position: relative;
-    padding: 0px 0px 0px 20px;
+    padding: 0.5em 0.5em 0.5em 0;
     ion-spinner {
       width: 15px;
       height: 15px;
     }
+    ion-grid {
+      width: 100%;
+    }
+    ion-col {
+      padding: 0;
+    }
     .mobile {
-      padding-bottom: 5px;
+      padding: 0.75em 0.25em;
       .header {
         position: relative;
       }
-      .type {
-        width: 50px;
-        height: 50px;
+      ion-col.type {
         background-color: #e6e6e6;
+        max-width: 50px;
+        max-height: 50px;
         img {
-            padding: 10px;
-            object-fit: contain;
-            height: 100%;
-            width: 100%;
-            filter: brightness(0.25);
-          }
+          padding: 10px;
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+          filter: brightness(0.25);
+        }
       }
       .chat {
         width: 30px;
         position: absolute;
-        top: 0;
-        right: 10px;
+        top: 0.25em;
+        right: 0.75em;
       }
       .details {
         position: relative;
-        padding-top: 15px;
+        padding-top: 1em;
         .title {
           position: relative;
           ion-spinner {
             float: left;
           }
           color: #000;
-          padding-bottom: 15px;
         }
-        .section {
+        ion-col {
           text-align: left;
           display: inline-block;
           width: 33%;
           margin: auto;
-          .info {
-            font-weight: 600;
+          p {
+            line-height: 0.25;
+            color: #666;
+          }
+          p.info {
             color: #000;
+            font-weight: 600;
             white-space: pre-wrap;
           }
         }
@@ -148,7 +155,7 @@
         }
       }
       .info {
-        line-height: 50px;
+        line-height: 20px;
         text-align: center;
         font-weight: 700;
       }

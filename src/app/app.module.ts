@@ -27,7 +27,7 @@ import { FacebookService } from 'ngx-facebook';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot({ mode: 'md' }),
+    IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,

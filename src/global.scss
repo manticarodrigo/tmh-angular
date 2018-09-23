@@ -51,12 +51,20 @@ h1, h2, h3, h4, h5, h6, p, strong, .label  {
 
 /* Element styles */
 
-button {
+ion-button {
   font-family: var(--ion-font-family-base) !important;
-  font-weight: 600 !important;
-  border-radius: 0px !important;
-  height: 40px !important;
-  margin: 0 auto !important;
+	font-weight: 600 !important;
+	--height: 40px;
+	--border-radius: 0;
+	--box-shadow: none;
+}
+
+hr {
+	background-color: rgba(0, 0, 0, 0.08);
+}
+
+input {
+	text-align: left !important;
 }
 
 /* Alert styles */

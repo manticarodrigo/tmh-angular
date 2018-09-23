@@ -29,19 +29,19 @@ export class UserService {
   }
 
   getAuthToken(): string {
-    return `Token ${this.token}`;
+    return this.token ? `Token ${this.token}` : null;
   }
 
   getCurrentUser(): Observable<User> {
     return new Observable(observer => {
       if (this.user) {
         observer.next(this.user);
-        observer.complete()
+        observer.complete();
       } else {
         this.storage.get('auth')
           .then((auth: AuthResponse) => {
-            observer.next(auth.user ? this.setAuth(auth) : null);
-            observer.complete()
+            observer.next(auth ? this.setAuth(auth) : null);
+            observer.complete();
           });
       }
     });

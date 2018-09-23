@@ -33,12 +33,6 @@ export class LoginPage implements OnInit {
         appId: '245954362655647',
         version: 'v2.8'
     });
-    this.userService.getCurrentUser()
-      .subscribe(user => {
-        if (user) {
-          this.router.navigate(['dashboard']);
-        }
-      });
   }
 
   toggleType() {

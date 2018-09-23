@@ -15,9 +15,9 @@
       <p *ngIf="!userService.user">
         user@email.com
       </p>
-      <button (click)="profilePressed()" ion-button full type="button">
+      <ion-button expand="block" type="button" (click)="profilePressed()">
         VIEW PROFILE
-      </button>
+      </ion-button>
     </div>
     <a (click)="allPressed()">ALL PROJECTS</a>
     <a (click)="newPressed()">NEW PROJECT</a>

@@ -12,10 +12,16 @@ export class AccessGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if (!this.userService.isLoggedIn()) {
-        this.router.navigate(['login']);
-      }
-      return true;
+      return new Observable(observer => {
+        this.userService.getAuth()
+          .subscribe(auth => {
+            if (!auth) {
+              this.router.navigate(['login']);
+            }
+            observer.next(true);
+            observer.complete();
+          });
+      });
   }
 }
 

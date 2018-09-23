@@ -16,8 +16,7 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class UserService {
-  private user: User;
-  private token: string;
+  private auth: AuthResponse;
   
   constructor(
     private http: HttpClient,
@@ -25,17 +24,17 @@ export class UserService {
   ) {}
   
   isLoggedIn(): boolean {
-    return Boolean(this.user && this.token);
+    return Boolean(this.auth);
   }
 
   getAuthToken(): string {
-    return this.token ? `Token ${this.token}` : null;
+    return this.auth ? `Token ${this.auth.key}` : null;
   }
 
-  getCurrentUser(): Observable<User> {
+  getAuth(): Observable<AuthResponse> {
     return new Observable(observer => {
-      if (this.user) {
-        observer.next(this.user);
+      if (this.auth) {
+        observer.next(this.auth);
         observer.complete();
       } else {
         this.storage.get('auth')
@@ -47,17 +46,16 @@ export class UserService {
     });
   }
 
-  setAuth(auth: AuthResponse): User {
+  setAuth(auth: AuthResponse): AuthResponse {
     console.log('setting current auth:', auth);
-    this.user = auth.user ? auth.user : null;
-    this.token = auth.key ? auth.key : null;
-    this.storage.set('auth', this.user ? this.user: null);
-    return this.user ? this.user: null;
+    this.auth = auth;
+    this.storage.set('auth', auth);
+    return this.auth;
   }
 
   logout(): Promise<void> {
     return this.storage.clear()
-      .then(() => this.user = null);
+      .then(() => this.auth = null);
   }
 
   register(
@@ -67,7 +65,7 @@ export class UserService {
     email,
     password1,
     password2
-  ): Observable<User> {
+  ): Observable<AuthResponse> {
     return this.http.post(
       `${environment.backendUrl}/rest-auth/registration/`,
       { username,
@@ -80,14 +78,14 @@ export class UserService {
     ).pipe(map((res: AuthResponse) => this.setAuth(res)));
   }
 
-  login(username: string, password: string): Observable<User> {
+  login(username: string, password: string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(
       `${environment.backendUrl}/rest-auth/login/`,
       { username, password }
     ).pipe(map((res: AuthResponse) => this.setAuth(res)));
   }
 
-  facebookAuth(token: string): Observable<User> {
+  facebookAuth(token: string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(
       `${environment.backendUrl}/rest-auth/facebook/`,
       { access_token: token }

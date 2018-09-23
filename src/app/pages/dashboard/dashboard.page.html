@@ -74,7 +74,7 @@
             <p class="sub-title">Edited</p>
           </div>
           <div class="section">
-            <p class="info">{{ this.projectService.statuses[project.status] }}</p>
+            <p class="info">{{ project.status | readableStatus }}</p>
             <p class="sub-title">Phase</p>
           </div>
           <div class="section">
@@ -97,7 +97,7 @@
           <p class="info">{{ project.modified_date | date:"MM/dd/yy" }}</p>
         </div>
         <div class="section">
-          <p class="info">{{ this.projectService.statuses[project.status] }}</p>
+          <p class="info">{{ project.status | readableStatus }}</p>
         </div>
         <div class="section">
           <p class="info">{{ project.end_date | daysLeft }}</p>

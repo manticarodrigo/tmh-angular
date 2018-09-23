@@ -21,16 +21,16 @@ export class Project {
   revision_count: string;
 }
 
-export interface ProjectStatus {
-  DETAILS: 'Details',
-  DESIGN: 'Design',
-  CONCEPTS: 'Concepts',
-  FLOOR_PLAN: 'Floor Plan',
-  REQUEST_ALTERNATIVES: 'Request Alternatives',
-  ALTERNATIVES_READY: 'Alternatives Ready',
-  FINAL_DELIVERY: 'Final Delivery',
-  SHOPPING_CART: 'Shopping Cart',
-  ESTIMATE_SHIPPING_AND_TAX: 'Estimate Shipping & Tax',
-  CHECKOUT: 'Checkout',
-  ARCHIVED: 'Archived'
+export enum ProjectStatus {
+  DETAILS = 'DETAILS',
+  DESIGN = 'DESIGN',
+  CONCEPTS = 'CONCEPTS',
+  FLOOR_PLAN = 'FLOOR_PLAN',
+  REQUEST_ALTERNATIVES = 'REQUEST_ALTERNATIVES',
+  ALTERNATIVES_READY = 'ALTERNATIVES_READY',
+  FINAL_DELIVERY = 'FINAL_DELIVERY',
+  SHOPPING_CART = 'SHOPPING_CART',
+  ESTIMATE_SHIPPING_AND_TAX = 'ESTIMATE_SHIPPING_AND_TAX',
+  CHECKOUT = 'CHECKOUT',
+  ARCHIVED = 'ARCHIVED',
 }

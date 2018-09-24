@@ -6,7 +6,7 @@
     background-color: transparent;
     contain: none;
   }
-  .no-projects {
+  ion-item.no-projects {
     max-width: 500px;
     padding: 30px 20px 10px 40px;
     margin: 40px auto;
@@ -63,11 +63,15 @@
     }
     ion-grid {
       width: 100%;
+      ion-col {
+        padding: 0;
+        p {
+          line-height: 0.25;
+          color: #666;
+        }
+      }
     }
-    ion-col {
-      padding: 0;
-    }
-    .mobile {
+    ion-grid.mobile {
       padding: 0.75em 0.25em;
       .header {
         position: relative;
@@ -106,8 +110,7 @@
           width: 33%;
           margin: auto;
           p {
-            line-height: 0.25;
-            color: #666;
+            line-height: 0.25; 
           }
           p.info {
             color: #000;
@@ -117,7 +120,7 @@
         }
       }
     }
-    .desktop {
+    ion-grid.desktop {
       .type {
         width: 50px !important;
         height: 50px !important;

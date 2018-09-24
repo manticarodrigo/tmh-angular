@@ -119,7 +119,7 @@ export class DashboardPage implements OnInit {
   }
 
   selectedProject(project) {
-    let page: any;
+    let page: string;
     switch (project.status) {
       case ProjectStatus.DETAILS:
         page = 'details'

@@ -29,14 +29,14 @@
       </a>
     </div>
   </div>
-  <ion-button 
-    full
+  <ion-button
+    expand="block"
     class="mobile"
     type="button"
     (click)="selectDropdown()"
   >
     {{ tabsMap[selectedTab] }}
-    <img src="assets/images/down.png">
+    <img slot="end" src="assets/images/down.png" />
   </ion-button>
   <div *ngIf="project" class="days-left">
     {{ project.end_date | daysLeft }} day(s) left

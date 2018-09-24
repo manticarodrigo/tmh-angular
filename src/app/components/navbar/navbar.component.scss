@@ -37,20 +37,8 @@
     padding: 10px 15px;
     position: relative;
     background-color: var(--ion-color-primary);
-    .button {
-      position: relative;
-      width: 100%;
+    ion-button {
       border: 1px solid #fff;
-      color: #fff !important;
-      // .button-inner {
-      //   justify-content: left;
-      // }
-      // img {
-      //   position: absolute;
-      //   top: 15px;
-      //   right: 15px;
-      //   margin: auto;
-      // }
     }
     img {
       width: 15px;
